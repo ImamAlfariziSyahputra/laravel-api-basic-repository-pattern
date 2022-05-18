@@ -2,35 +2,35 @@
 
 declare(strict_types=1);
 
-namespace App\Modules\Students;
+namespace App\Modules\Courses;
 
-class StudentsService
+class CoursesService
 {
     public function __construct(
-        private StudentsValidator $validator,
-        private StudentsRepository $repository
+        private CoursesValidator $validator,
+        private CoursesRepository $repository
     ) {
     }
 
-    public function get(int $id): Students
+    public function get(int $id): Courses
     {
         return $this->repository->get($id);
     }
 
     /** 
-     * @return Studets[]
+     * @return Courses[]
      */
     public function getByCourseId(int $courseId): array
     {
         return $this->repository->getByCourseId($courseId);
     }
 
-    public function update(array $data): Students
+    public function update(array $data): Courses
     {
         $this->validator->validateUpdate($data);
 
         return $this->repository->update(
-            StudentsMapper::mapFrom($data)
+            CoursesMapper::mapFrom($data)
         );
     }
 

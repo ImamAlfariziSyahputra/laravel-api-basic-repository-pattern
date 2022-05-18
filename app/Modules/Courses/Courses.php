@@ -2,14 +2,15 @@
 
 declare(strict_types=1);
 
-namespace App\Modules\Students;
+namespace App\Modules\Courses;
 
-class Students
+class Courses
 {
     public function __construct(
         private ?int $id,
         private string $name,
-        private string $email,
+        private int $capacity,
+        private int $totalsStudentsEnrolled,
         private ?string $deletedAt,
         private string $createdAt,
         private ?string $updatedAt,
@@ -21,7 +22,8 @@ class Students
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'email' => $this->email,
+            'capacity' => $this->capacity,
+            'totalsStudentsEnrolled' => $this->totalsStudentsEnrolled,
             'deletedAt' => $this->deletedAt,
             'createdAt' => $this->createdAt,
             'updatedAt' => $this->updatedAt,
@@ -33,7 +35,7 @@ class Students
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'email' => $this->email,
+            'capacity' => $this->capacity,
             'deleted_at' => $this->deletedAt,
             'created_at' => $this->createdAt,
             'updated_at' => $this->updatedAt,
@@ -48,9 +50,13 @@ class Students
     {
         return $this->name;
     }
-    public function getEmail(): string
+    public function getCapacity(): int
     {
-        return $this->email;
+        return $this->capacity;
+    }
+    public function getTotalsStudentsEnrolled(): int
+    {
+        return $this->totalsStudentsEnrolled;
     }
     public function getDeletedAt(): ?string
     {

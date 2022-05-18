@@ -9,7 +9,7 @@ abstract class MyHelpers
     public static function nullStringToInt($str): ?int
     {
         if ($str !== null) {
-            return (int) $str;
+            return (int)$str;
         }
 
         return null;
